@@ -86,6 +86,7 @@ body {
     -moz-background-clip: text !important;
     -webkit-background-clip: text !important;
     -khtml-background-clip: text !important;
+    background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
     display: flex;
