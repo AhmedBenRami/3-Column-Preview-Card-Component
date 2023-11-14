@@ -86,7 +86,6 @@ body {
     -moz-background-clip: text !important;
     -webkit-background-clip: text !important;
     -khtml-background-clip: text !important;
-    background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
     display: flex;
@@ -184,6 +183,31 @@ body {
     }
 }
 
+/*medium-xlarge screen*/
+@media (min-width: 768px) and (max-width: 972px) {
+    .container {
+        width: 90%;
+        height: 80%;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(2, 50%);
+    }
+
+    .sedans {
+        border-bottom-left-radius: 0;
+    }
+
+    .suvs {
+        border-top-right-radius: 10px;
+    }
+
+    .luxury {
+        grid-column: span 2;
+        border-radius: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+
 /*medium-large screen*/
 @media (min-width: 580px) and (max-width: 768px) {
     .container {
@@ -219,5 +243,11 @@ body {
     .column {
         border-radius: 0;
         padding: 0 20px;
+    }
+}
+
+@media (max-width: 200px) {
+    .container {
+        height: calc(170% * 1.5);
     }
 }
