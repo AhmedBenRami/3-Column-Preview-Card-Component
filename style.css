@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --button-transition: .3s;
+    --sedans-color: hsl(31, 77%, 52%);
+    --suvs-color: hsl(184, 100%, 22%);
+    --luxury-color: hsl(179, 100%, 13%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: calc(0.6180339887 * 100%);
+    height: calc(0.6180339887 * 100%);
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3));
+    grid-template-rows: 100%;
+}
+
+.column {
+    width: calc(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: left;
+    padding: 0 calc((47 / 307) * 100%);
+    position: relative;
+}
+
+.column h2 {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.column p {
+    font-size: 15px;
+    font-weight: lighter;
+    position: relative;
+    top: -1%;
+}
+
+.column::before {
+    width: calc((66 / 307) * 100%);
+    aspect-ratio: 1 / 1;
+}
+
+.more {
+    width: 101px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    background: linear-gradient(45deg, white 0%, white calc(100% - var(--per)), transparent 0%, transparent var(--per));
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.more::before {
+    content: 'Learn More';
+    width: 100%;
+    height: 100%;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.sedans {
+    background-color: var(--sedans-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.sedans .more {
+    color: var(--sedans-color);
+}
+
+.sedans .more::before {
+    background: linear-gradient(45deg, var(--sedans-color) 0%, var(--sedans-color) calc(100% - var(--per)), white 0%, white var(--per));
+}
+
+.sedans::before {
+    content: url(images/icon-sedans.svg);
+}
+
+.suvs {
+    background-color: var(--suvs-color);
+}
+
+.suvs .more {
+    color: var(--suvs-color);
+}
+
+.suvs .more::before {
+    background: linear-gradient(45deg, var(--suvs-color) 0%, var(--suvs-color) calc(100% - var(--per)), white 0%, white var(--per));
+}
+
+
+.suvs::before {
+    content: url(images/icon-suvs.svg);
+}
+
+.luxury {
+    background-color: var(--luxury-color);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.luxury .more {
+    color: var(--luxury-color);
+}
+
+.luxury .more::before {
+    background: linear-gradient(45deg, var(--luxury-color) 0%, var(--luxury-color) calc(100% - var(--per)), white 0%, white var(--per));
+
+}
+
+.luxury::before {
+    content: url(images/icon-luxury.svg);
+}
+
+.more:hover {
+    color: white;
+    background-color: transparent;
+    animation: button-transition var(--button-transition) linear both;
+
+    &::before {
+        animation: button-transition var(--button-transition) linear both;
+    }
+}
+
+/*property related to bg color of the button*/
+@property --per {
+
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0%;
+
+}
+
+/*also this animation related to button as indicaded from the name*/
+@keyframes button-transition {
+    to {
+        --per: 100%;
+    }
+}
+
+/*medium-large screen*/
+@media (min-width: 580px) and (max-width: 768px) {
+    .container {
+        width: 90%;
+        height: 80%;
+    }
+}
+
+/* medium screen */
+@media (min-width: 375px) and (max-width: 580px) {
+    .container {
+        width: 100%;
+        height: 80%;
+    }
+
+    .column {
+        border-radius: 0;
+        padding: 0 20px;
+    }
+}
+
+/*mobile*/
+@media (max-width:375px) {
+    .container {
+        width: 100%;
+        height: 170%;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(3, calc(100% / 3));
+        position: absolute;
+        top: 0;
+    }
+
+    .column {
+        border-radius: 0;
+        padding: 0 20px;
+    }
+}
