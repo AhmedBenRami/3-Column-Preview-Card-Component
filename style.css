@@ -253,6 +253,8 @@ body {
         grid-template-columns: 100%;
         grid-template-rows: repeat(3, calc(100% / 3));
     }
+    .column{
+        border-radius:0;
 }
 /*small screen*/
 @media (max-width: 200px) {
