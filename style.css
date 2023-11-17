@@ -256,6 +256,7 @@ body {
     .column{
         border-radius:0;
 }
+}
 /*small screen*/
 @media (max-width: 200px) {
     .container {
