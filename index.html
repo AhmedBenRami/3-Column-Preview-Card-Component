@@ -20,7 +20,7 @@
                 or on your next road trip.
             </p>
             <button class="more"></button>
-
+            
         </div>
 
         <div class="column suvs">
@@ -42,6 +42,22 @@
 
         </div>
     </div>
+        <script>
+        var isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+        if (isFirefox) {
+            let i = 0;
+            let buttons = document.querySelectorAll(".more")
+            while (i < buttons.length) {
+
+                buttons[i].classList.add("added");
+                i++;
+            }
+            console.log('Your Firefox browser couldn\'t support the button animation.');
+        } else {
+            console.log('Your "not(Firefox)" browser could support the button animation succesfully.');
+        }
+
+    </script>
 </body>
 
 </html>
